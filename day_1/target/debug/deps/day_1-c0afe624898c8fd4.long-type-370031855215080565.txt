@@ -1,0 +1,1 @@
+Map<FilterMap<std::io::Lines<BufReader<File>>, fn(Result<String, std::io::Error>) -> Option<String> {Result::<String, std::io::Error>::ok}>, {closure@src/main.rs:11:14: 11:17}>
