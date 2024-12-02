@@ -32,7 +32,9 @@ fn main() -> io::Result<()> {
 
     // Part 2
     let counter = list2.iter().fold(HashMap::new(), |mut map, item| {
-        *map.entry(item).or_insert(0) += 1;
+        map.entry(item)
+            .and_modify(|counter| *counter += 1)
+            .or_insert(1);
         map
     });
 
