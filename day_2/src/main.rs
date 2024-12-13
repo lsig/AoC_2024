@@ -45,8 +45,7 @@ fn main() -> io::Result<()> {
 
     let safe = reports
         .iter()
-        .map(|report| safety_check(&report))
-        .filter(|&safe| safe)
+        .filter(|report| safety_check(&report))
         .count();
 
     let safe2 = reports
