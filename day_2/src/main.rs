@@ -23,14 +23,14 @@ fn main() -> io::Result<()> {
         .map(|report| {
             report
                 .windows(2)
-                .all(|w| w[0] <= w[1] && i64::abs(w[1] - w[0]) >= 1 && i64::abs(w[1] - w[0]) <= 3)
+                .all(|w| w[0] < w[1] && i64::abs(w[1] - w[0]) >= 1 && i64::abs(w[1] - w[0]) <= 3)
                 || report.windows(2).all(|w| {
-                    w[0] >= w[1] && i64::abs(w[1] - w[0]) >= 1 && i64::abs(w[1] - w[0]) <= 3
+                    w[0] > w[1] && i64::abs(w[1] - w[0]) >= 1 && i64::abs(w[1] - w[0]) <= 3
                 })
         })
         .filter(|&safe| safe)
         .count();
-    // println!("{:?}", reports);
+
     println!("{:?}", safe);
 
     Ok(())
