@@ -14,7 +14,7 @@ fn main() -> io::Result<()> {
     let mul: i64 = reader
         .lines()
         .filter_map(|s| s.ok())
-        .map(|s| {
+        .flat_map(|s| {
             re.captures_iter(&s)
                 .filter_map(|c| {
                     let (_, [s1, s2]) = c.extract();
@@ -23,7 +23,7 @@ fn main() -> io::Result<()> {
 
                     Some(n1 * n2)
                 })
-                .sum::<i64>()
+                .collect::<Vec<i64>>()
         })
         .sum();
 
