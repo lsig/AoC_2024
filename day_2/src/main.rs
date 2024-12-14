@@ -35,7 +35,7 @@ fn main() -> io::Result<()> {
 
     let reports: Vec<Vec<i64>> = reader
         .lines()
-        .filter_map(Result::ok)
+        .filter_map(|s| s.ok())
         .map(|s| {
             s.split_whitespace()
                 .filter_map(|num| num.parse::<i64>().ok())
